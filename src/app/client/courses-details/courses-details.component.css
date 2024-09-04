@@ -1,0 +1,41 @@
+.course-detail {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .course-detail-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .info-item mat-icon {
+    font-size: 2rem;
+    color: #007bff;
+    margin-right: 0.5rem;
+  }
+  
+  .info-item p {
+    font-size: 1rem;
+    margin: 0;
+  }
+  
+  .enrollment-section {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  .enrollment-section button {
+    margin-top: 1rem;
+  }
+  

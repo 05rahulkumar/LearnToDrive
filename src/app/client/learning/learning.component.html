@@ -1,0 +1,80 @@
+<section class="learning-materials">
+    <div class="container">
+      <h2 class="text-center mb-4">Learning Materials</h2>
+  
+      <!-- Study Materials Section -->
+      <div class="study-materials mb-5">
+        <mat-card class="material-card">
+          <mat-card-header>
+            <mat-card-title>Study Guides & Practice Tests</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul>
+              <li *ngFor="let material of studyMaterials">
+                <a [href]="material.link" target="_blank">{{ material.title }}</a>
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Video Tutorials Section -->
+      <div class="video-tutorials mb-5">
+        <mat-card class="tutorial-card">
+          <mat-card-header>
+            <mat-card-title>Video Tutorials</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="video-grid">
+              <div class="video-item" *ngFor="let video of videoTutorials">
+                <mat-card>
+                  <iframe [src]="video.url " frameborder="0" allowfullscreen></iframe>
+                  <mat-card-content>
+                    <p>{{ video.title }}</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- FAQs Section -->
+      <div class="faqs mb-5">
+        <mat-card class="faq-card">
+          <mat-card-header>
+            <mat-card-title>Frequently Asked Questions</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-accordion>
+              <mat-expansion-panel *ngFor="let faq of faqs">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ faq.question }}
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <!-- <mat-expansion-panel-content> -->
+                  <p>{{ faq.answer }}</p>
+                <!-- </mat-expansion-panel-content> -->
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Tips Section -->
+      <div class="tips">
+        <mat-card class="tips-card">
+          <mat-card-header>
+            <mat-card-title>Study Tips</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul>
+              <li *ngFor="let tip of tips">{{ tip }}</li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  

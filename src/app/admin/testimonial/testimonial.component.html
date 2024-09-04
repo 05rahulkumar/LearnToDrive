@@ -1,0 +1,58 @@
+<div class="testimonial-container">
+    <!-- Form for Adding/Updating Testimonials -->
+    <mat-card class="testimonial-form-card">
+      <mat-card-title>{{ editingIndex !== null ? 'Update Testimonial' : 'Add Testimonial' }}</mat-card-title>
+      <form [formGroup]="testimonialForm" (ngSubmit)="addOrUpdateTestimonial()">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter name" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Review</mat-label>
+          <textarea matInput formControlName="review" placeholder="Enter review"></textarea>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">
+          {{ editingIndex !== null ? 'Update' : 'Add' }}
+        </button>
+        <button mat-button type="button" (click)="resetForm()">Cancel</button>
+      </form>
+    </mat-card>
+  
+    <!-- Table to Display Testimonials -->
+    <mat-card class="testimonial-table-card">
+      <mat-card-title>Testimonials</mat-card-title>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+  
+        <!-- Review Column -->
+        <ng-container matColumnDef="review">
+          <th mat-header-cell *matHeaderCellDef> Review </th>
+          <td mat-cell *matCellDef="let element"> {{element.review}} </td>
+        </ng-container>
+  
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <button mat-icon-button color="primary" (click)="editTestimonial(i)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteTestimonial(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['name', 'review', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['name', 'review', 'actions'];"></tr>
+      </table>
+    </mat-card>
+  </div>
+  

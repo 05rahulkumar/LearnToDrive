@@ -1,0 +1,34 @@
+<section class="course-detail">
+    <div class="container">
+      <mat-card class="course-detail-card">
+        <mat-card-header>
+          <mat-card-title>{{ course.title }}</mat-card-title>
+          <mat-card-subtitle>{{ course.duration }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="course-info">
+            <div class="info-item">
+              <mat-icon>attach_money</mat-icon>
+              <p><strong>Cost:</strong> {{ course.cost }}</p>
+            </div>
+            <div class="info-item">
+              <mat-icon>schedule</mat-icon>
+              <p><strong>Duration:</strong> {{ course.duration }}</p>
+            </div>
+            <div class="info-item">
+              <mat-icon>book</mat-icon>
+              <p><strong>Syllabus:</strong> {{ course.syllabus }}</p>
+            </div>
+            <div class="info-item">
+              <mat-icon>info</mat-icon>
+              <p><strong>Description:</strong> {{ course.description }}</p>
+            </div>
+          </div>
+          <div class="enrollment-section">
+            <button mat-raised-button color="primary" (click)="enroll()">Enroll Now</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+  

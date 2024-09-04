@@ -1,0 +1,25 @@
+.trainers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .trainer-form-card,
+  .trainer-table-card {
+    padding: 16px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  

@@ -1,0 +1,64 @@
+<section class="course-management-section" style="padding-top: 10%;">
+    <div class="container">
+      <div class="course-list">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Course Management</mat-card-title>
+            <button mat-raised-button color="primary" (click)="openCourseForm()">Add New Course</button>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-table [dataSource]="courses">
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Course Name </mat-header-cell>
+                <mat-cell *matCellDef="let course">{{ course.name }}</mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+                <mat-cell *matCellDef="let course">
+                  <button mat-icon-button (click)="editCourse(course)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn" (click)="removeCourse(course.id)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Course Form Modal -->
+      <ng-template #coursForm let-dialog>
+        <mat-dialog-content>
+          <form [formGroup]="courseForm" (ngSubmit)="submitCourse()">
+            <mat-form-field appearance="fill">
+              <mat-label>Course Name</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Duration</mat-label>
+              <input matInput formControlName="duration" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Cost</mat-label>
+              <input matInput formControlName="cost" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Syllabus</mat-label>
+              <textarea matInput formControlName="syllabus" rows="3" required></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Schedule</mat-label>
+              <input matInput formControlName="schedule" required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Save</button>
+            <button mat-button (click)="dialog.close()">Cancel</button>
+          </form>
+        </mat-dialog-content>
+      </ng-template>
+    </div>
+  </section>
+  

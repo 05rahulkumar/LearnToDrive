@@ -1,0 +1,58 @@
+<section class="dashboard-section" style="padding-top: 10%;">
+    <div class="container">
+      <!-- Overview Cards -->
+      <div class="overview-cards">
+        <mat-card class="overview-card">
+          <mat-card-header>
+            <mat-card-title>Site Activity</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon>person_add</mat-icon>
+                <span>New Registrations: {{ siteActivity.newRegistrations }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon>event</mat-icon>
+                <span>Upcoming Classes: {{ siteActivity.upcomingClasses }}</span>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+  
+        <mat-card class="overview-card">
+          <mat-card-header>
+            <mat-card-title>Key Metrics</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-list>
+              <mat-list-item>
+                <mat-icon>assessment</mat-icon>
+                <span>Total Registrations: {{ keyMetrics.totalRegistrations }}</span>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon>class</mat-icon>
+                <span>Total Classes: {{ keyMetrics.totalClasses }}</span>
+              </mat-list-item>
+              <!-- Add more metrics as needed -->
+            </mat-list>
+          </mat-card-content>
+        </mat-card>
+      </div>
+  
+      <!-- Performance Charts -->
+      <div class="charts">
+        <!-- Example Chart - Add actual chart components here -->
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Registration Trends</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <!-- Example chart placeholder -->
+            <div class="chart-placeholder">[Chart Placeholder]</div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  

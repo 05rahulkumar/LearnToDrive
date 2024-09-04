@@ -1,0 +1,20 @@
+footer {
+  background-color: #008080; /* Teal Blue */
+  color: white;
+}
+
+footer .btn-floating {
+  color: white;
+}
+
+footer .btn-floating:hover {
+  color: #8BC34A; /* Light Green */
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: #8BC34A; /* Light Green */
+}

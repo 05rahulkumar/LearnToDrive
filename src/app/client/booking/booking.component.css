@@ -1,0 +1,27 @@
+.booking-registration {
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .registration-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .payment-section {
+    margin-top: 1rem;
+  }
+  
+  .payment-section mat-form-field {
+    margin-bottom: 1rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  

@@ -1,0 +1,60 @@
+.learning-materials {
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .material-card,
+  .tutorial-card,
+  .faq-card,
+  .tips-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .material-card ul,
+  .tips-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .material-card li,
+  .tips-card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .material-card a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .material-card a:hover {
+    text-decoration: underline;
+  }
+  
+  .video-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .video-item {
+    flex: 1 1 calc(33.333% - 1rem);
+  }
+  
+  .video-item mat-card {
+    border-radius: 8px;
+  }
+  
+  .video-item iframe {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .mat-expansion-panel-header {
+    cursor: pointer;
+  }
+  
+  .mat-expansion-panel-content p {
+    margin: 0;
+  }
+  

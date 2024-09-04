@@ -1,0 +1,18 @@
+.container {
+    max-width: 800px;
+  }
+  
+  .review-card {
+    border-radius: 8px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  @media (max-width: 767px) {
+    .review-card {
+      padding: 15px;
+    }
+  }
+  

@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-dark clr_bg" *ngIf="!isAdmin">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand mx-5" href="#">
+        <img src="assets/img/logo.png" width="30" height="30" alt="Logo">
+      </a>
+      <!-- Display menu button on smaller screens -->
+      <button mat-icon-button *ngIf="isSmallScreen" [matMenuTriggerFor]="menu" aria-label="Toggle navigation">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- Menu items for smaller screens -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="/courses">Courses</button>
+        <h4 class="mr-4" routerLink="/booking">Booking</h4>
+        <button mat-menu-item routerLink="blog-news">Blog</button>
+        <button mat-menu-item routerLink="learning">learning</button>
+        <button mat-menu-item routerLink="/login-Signup">Login</button>
+        <button mat-menu-item routerLink="/account">Profile</button>
+        <button mat-menu-item href="#" >Logout</button>
+      </mat-menu>
+      <!-- Search form -->
+      <form class="form-inline my-2 my-lg-0 mx-auto">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+         <!-- Display all menu items as header text on larger screens -->
+         <div class="d-none d-lg-block">
+          <div class="d-flex align-items-center">
+            <button mat-menu-item routerLink="/client/courses">Courses</button>
+            <h4 class="mr-4" routerLink="/booking">Booking</h4>
+            <h4 class="mr-4" routerLink="learning">learning</h4>
+            <h4 class="mr-4" routerLink="blog-news">Blog</h4>
+            <h4 class="mr-4" routerLink="/account">Login</h4>
+            <h4 routerLink="/account">Account</h4>
+            <h4 href="#" >Logout</h4>
+          </div>
+        </div>
+    </div>
+  </nav>
+  
+  <!-- admin -->
+  <nav class="navbar navbar-expand-lg navbar-dark clr_bg" *ngIf="isAdmin">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand mx-5" href="#">
+        <img src="assets/img/logo.png" width="30" height="30" alt="Logo">
+      </a>
+      <!-- Display menu button on smaller screens -->
+      <button mat-icon-button *ngIf="isSmallScreen" [matMenuTriggerFor]="menu" aria-label="Toggle navigation">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!-- Menu items for smaller screens -->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="admin/courses-manage">Courses</button>
+        <h4 class="mr-4" routerLink="/admin/booking-manage">Booking</h4>
+        <button mat-menu-item routerLink="/admin/trainer">Trainer</button>
+        <button mat-menu-item routerLink="/admin/testimonial">Testimonial</button>
+        <button mat-menu-item routerLink="/admin/setting">Settings</button>
+        <button mat-menu-item routerLink="/admin/user-manage">User</button>
+        <button mat-menu-item routerLink="/admin/benefits">Benefits</button>
+
+        <button mat-menu-item href="#" >Logout</button>
+      </mat-menu>
+      <!-- Search form -->
+      <form class="form-inline my-2 my-lg-0 mx-auto">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+         <!-- Display all menu items as header text on larger screens -->
+         <div class="d-none d-lg-block">
+          <div class="d-flex align-items-center">
+            <button mat-menu-item routerLink="/admin/courses-manage">Courses</button>
+            <h4 class="mr-4" routerLink="/admin/booking-manage">Booking</h4>
+            <h4 class="mr-4" routerLink="/admin/testimonial">Testimonial</h4>
+            <h4 class="mr-4" routerLink="/admin-trainer">Trainer</h4>
+            <h4 class="mr-4" routerLink="/admin/user-manage">User</h4>
+            <h4 class="mr-4" routerLink="/admin/setting">Settings</h4>
+            <h4 routerLink="/admin/benefits">Benefits</h4>
+            <h4 href="#" >Logout</h4>
+          </div>
+        </div>
+    </div>
+  </nav>
+  
+  

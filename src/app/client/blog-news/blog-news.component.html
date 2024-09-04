@@ -1,0 +1,25 @@
+<section class="blog-news">
+    <div class="container">
+      <h2 class="text-center mb-4">Latest Videos</h2>
+  
+      <!-- Video Cards Section -->
+      <div class="video-cards">
+        <mat-card class="video-card" *ngFor="let video of videos">
+          <!-- Video Player -->
+          <video
+            #videoPlayer
+            [src]="video.url"
+            autoplay
+            muted
+            controls
+            preload="auto"
+            class="responsive-video"
+          ></video>
+          <mat-card-content>
+            <p class="video-title">{{ video.title }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+  

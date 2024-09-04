@@ -1,0 +1,130 @@
+<section class="settings-section" style="padding-top: 10%;">
+    <div class="container">
+      <!-- Tabs for Site Settings, Security Settings, and User Permissions -->
+      <mat-tab-group>
+        <!-- Site Settings Tab -->
+        <mat-tab label="Site Settings">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Site Settings</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form [formGroup]="siteSettingsForm" (ngSubmit)="saveSiteSettings()">
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>Payment Gateway API Key</mat-label>
+                  <input matInput formControlName="paymentGatewayApiKey">
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>Email SMTP Server</mat-label>
+                  <input matInput formControlName="smtpServer">
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>SMTP Port</mat-label>
+                  <input matInput formControlName="smtpPort" type="number">
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>SMTP User</mat-label>
+                  <input matInput formControlName="smtpUser">
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>SMTP Password</mat-label>
+                  <input matInput formControlName="smtpPassword" type="password">
+                <!-- </mat-form-field> -->
+  
+                <button mat-raised-button color="primary" type="submit">Save Settings</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+  
+        <!-- Security Settings Tab -->
+        <mat-tab label="Security Settings">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>Security Settings</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <form [formGroup]="securitySettingsForm" (ngSubmit)="saveSecuritySettings()">
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>Enable Two-Factor Authentication</mat-label>
+                  <mat-slide-toggle formControlName="twoFactorAuth"></mat-slide-toggle>
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>Max Login Attempts</mat-label>
+                  <input matInput formControlName="maxLoginAttempts" type="number">
+                <!-- </mat-form-field> -->
+  
+                <!-- <mat-form-field appearance="fill"> -->
+                  <mat-label>Lockout Duration (minutes)</mat-label>
+                  <input matInput formControlName="lockoutDuration" type="number">
+                <!-- </mat-form-field> -->
+  
+                <button mat-raised-button color="primary" type="submit">Save Security Settings</button>
+              </form>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+  
+        <!-- User Permissions Tab -->
+        <mat-tab label="User Permissions">
+          <mat-card>
+            <mat-card-header>
+              <mat-card-title>User Permissions</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-table [dataSource]="permissions" class="mat-elevation-z8">
+                <ng-container matColumnDef="role">
+                  <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+                  <mat-cell *matCellDef="let permission">{{ permission.role }}</mat-cell>
+                </ng-container>
+  
+                <ng-container matColumnDef="permissions">
+                  <mat-header-cell *matHeaderCellDef> Permissions </mat-header-cell>
+                  <mat-cell *matCellDef="let permission">
+                    <mat-checkbox *ngFor="let perm of permission.permissions" [checked]="perm.enabled">
+                      {{ perm.name }}
+                    </mat-checkbox>
+                  </mat-cell>
+                </ng-container>
+  
+                <mat-header-row *matHeaderRowDef="permissionsColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: permissionsColumns;"></mat-row>
+              </mat-table>
+  
+              <button mat-raised-button color="primary" (click)="editPermissions()">Edit Permissions</button>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+      </mat-tab-group>
+  
+      <!-- Edit Permissions Dialog -->
+      <ng-template #editPermissionsDialog let-dialog>
+        <mat-dialog-content>
+          <form [formGroup]="editPermissionsForm" (ngSubmit)="savePermissions()">
+            <!-- <mat-form-field appearance="fill"> -->
+              <mat-label>Select Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+              </mat-select>
+            <!-- </mat-form-field> -->
+  
+            <!-- <mat-form-field appearance="fill"> -->
+              <mat-label>Permissions</mat-label>
+              <mat-checkbox *ngFor="let perm of availablePermissions" [(ngModel)]="perm.enabled" [formControlName]="perm.name">
+                {{ perm.name }}
+              </mat-checkbox>
+            <!-- </mat-form-field> -->
+  
+            <button mat-raised-button color="primary" type="submit">Save Permissions</button>
+            <button mat-button (click)="dialog.close()">Cancel</button>
+          </form>
+        </mat-dialog-content>
+      </ng-template>
+    </div>
+  </section>
+  

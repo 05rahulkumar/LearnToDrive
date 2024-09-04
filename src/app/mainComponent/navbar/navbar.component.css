@@ -1,0 +1,32 @@
+
+.navbar {
+  background-color: #008080; /* Teal Blue */
+  color: white;
+}
+.navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .form-inline {
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .navbar-nav {
+    align-items: center;
+  }
+  .nav-link {
+    color: white !important;
+  }
+  
+  .nav-link:hover {
+    color: #8BC34A !important; /* Light Green */
+  }
+  
+  .d-flex.align-items-center h4 {
+    margin-right: 10px; /* Add space between inputs */
+    font-size: 14px; /* Make the inputs smaller */
+  }
+  
+  
+  

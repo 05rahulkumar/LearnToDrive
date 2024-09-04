@@ -1,0 +1,26 @@
+.settings-section {
+    padding: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-card {
+    margin: 20px 0;
+  }
+  
+  .mat-table {
+    width: 100%;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    text-align: left;
+  }
+  
+  @media (max-width: 600px) {
+    .mat-card {
+      margin: 10px 0;
+    }
+  }
+  

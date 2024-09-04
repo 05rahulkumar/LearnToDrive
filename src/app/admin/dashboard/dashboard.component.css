@@ -1,0 +1,42 @@
+.dashboard-section {
+    padding: 2rem;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .overview-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .overview-card {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .mat-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-icon {
+    margin-right: 8px;
+    color: #3f51b5;
+  }
+  
+  .charts {
+    margin-top: 2rem;
+  }
+  
+  .chart-placeholder {
+    height: 300px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  

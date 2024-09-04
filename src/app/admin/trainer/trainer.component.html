@@ -1,0 +1,77 @@
+<div class="trainers-container">
+    <!-- Form for Adding/Updating Trainers -->
+    <mat-card class="trainer-form-card">
+      <mat-card-title>{{
+        editingIndex !== null ? 'Update Trainer' : 'Add Trainer'
+      }}</mat-card-title>
+      <form [formGroup]="trainerForm" (ngSubmit)="addOrUpdateTrainer()">
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Enter name" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Contact</mat-label>
+          <input matInput formControlName="contact" placeholder="Enter contact" />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Experience</mat-label>
+          <input
+            matInput
+            formControlName="experience"
+            placeholder="Enter experience"
+          />
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" type="submit">
+          {{ editingIndex !== null ? 'Update' : 'Add' }}
+        </button>
+        <button mat-button type="button" (click)="resetForm()">Cancel</button>
+      </form>
+    </mat-card>
+  
+    <!-- Table to Display Trainers -->
+    <mat-card class="trainer-table-card">
+      <mat-card-title>Trainers</mat-card-title>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+        </ng-container>
+  
+        <!-- Contact Column -->
+        <ng-container matColumnDef="contact">
+          <th mat-header-cell *matHeaderCellDef> Contact </th>
+          <td mat-cell *matCellDef="let element"> {{ element.contact }} </td>
+        </ng-container>
+  
+        <!-- Experience Column -->
+        <ng-container matColumnDef="experience">
+          <th mat-header-cell *matHeaderCellDef> Experience </th>
+          <td mat-cell *matCellDef="let element"> {{ element.experience }} </td>
+        </ng-container>
+  
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <button mat-icon-button color="primary" (click)="editTrainer(i)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteTrainer(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['name', 'contact', 'experience', 'actions']"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: ['name', 'contact', 'experience', 'actions']"
+        ></tr>
+      </table>
+    </mat-card>
+  </div>
+  

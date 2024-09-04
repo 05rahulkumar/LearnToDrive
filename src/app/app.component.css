@@ -1,0 +1,15 @@
+/* app.component.css or global styles.css */
+
+/* Style for app-navbar with smooth transition */
+app-navbar {
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Fixed positioning if needed */
+  app-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  

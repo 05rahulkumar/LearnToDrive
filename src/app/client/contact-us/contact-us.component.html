@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Contact Us</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter your name">
+                <mat-error *ngIf="contactForm.get('name')?.hasError('required')">Name is required</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter your email">
+                <mat-error *ngIf="contactForm.get('email')?.hasError('required')">Email is required</mat-error>
+                <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Enter a valid email</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Message</mat-label>
+            <textarea matInput formControlName="message" placeholder="Enter your message"></textarea>
+            <mat-error *ngIf="contactForm.get('message')?.hasError('required')">Message is required</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Rating</mat-label>
+            <mat-select formControlName="rating">
+              <mat-option *ngFor="let i of [1, 2, 3, 4, 5]" [value]="i">{{ i }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="contactForm.get('rating')?.hasError('required')">Rating is required</mat-error>
+          </mat-form-field>
+          <div class="text-end">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="mt-4">
+      <mat-card-header>
+        <mat-card-title>Recent Reviews</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let review of reviews" class="review-card mb-3 p-3 border">
+          <div class="d-flex justify-content-between">
+            <strong>{{ review.name }}</strong>
+            <span class="text-muted">{{ review.date | date }}</span>
+          </div>
+          <div class="mt-2">
+            <p>{{ review.message }}</p>
+          </div>
+          <div class="mt-2">
+            <mat-icon *ngFor="let star of stars(review.rating)" color="primary">star</mat-icon>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
